@@ -1,4 +1,4 @@
-# Big_Data-Python-Exerc-cio_Nota_Final
+# Big_Data-Python-Exercicio_Nota_Final
 
 1. Obtenha o dataset do endereço https://www.w3resource.com/pythonexercises/pandas/filter/world_alcohol.csv e realize as seguintes análises (3,0 pontos):
 

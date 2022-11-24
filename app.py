@@ -18,8 +18,17 @@ df_regiao_ano = df.groupby(['WHO region', 'Year'])
 print(df_regiao_ano)
 
 #C
-#Seção de Contagens: Contar a ocorrência de Regiões, de Países e a soma da coluna de valores por Bebida ------------
+#Seção de Contagens: (I) Contar a ocorrência de Regiões, (II) de Países e a (III) soma da coluna de valores por Bebida ------------
+#(I)
+df_regiao = df.groupby('WHO region')
+print(df_regiao.count())
 
+#(II)
+df_pais = df.groupby('Country')
+print(df_pais.count())
+
+#(III)
+print(df_bebidas.sum())
 
 
 

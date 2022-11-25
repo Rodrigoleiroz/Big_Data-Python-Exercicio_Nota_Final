@@ -79,14 +79,31 @@ print(media)
 
 
 # h. Média das notas de corte dos cursos de tempo integral.---------------------------------------------------------------
+# OBS: Não consta na tabela a informacao "notas de corte", entao fiz a media com a "nota integral ampla" 
 
+df_turnos = df.groupby('turno')
 
+df_turno_int = df_turnos.get_group('Integral').head(10)
+
+media_corte = df_turno_int.mean()['nota_integral_ampla']
+
+print(media_corte)
 
 
 # i. Estatística Descritiva das Notas Integral Ampla dos cursos de Bacharelado.---------------------------------------------
 
+df_not_int_ampl = df.groupby('nota_integral_ampla')
+
+est_desc_not_int_ampl = df_not_int_ampl.describe().head(10)
+
+print (est_desc_not_int_ampl)
 
 
 
 
 # j. Gráfico comparativo entre o grau dos cursos (Bacharelado, Licenciatura, Tecnologia, etc) pelas Notas Integral de Cotas.--
+
+
+
+
+

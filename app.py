@@ -58,22 +58,26 @@ print("D-")
 print("Média")
 #media dos valores por tipo de bebida
 df_bebidas3 = df.groupby('Beverage Types')
-print(df_bebidas3.mean()['Display Value'])
+media = df_bebidas3.mean()['Display Value']
+print(media)
 
 print("Mediana")
 #mediana dos valores por tipo de bebida
 df_bebidas4 = df.groupby('Beverage Types')
-print(df_bebidas4.median()['Display Value'])
+mediana = df_bebidas4.median()['Display Value']
+print(mediana)
 
 print("Moda")
 # moda dos valores por tipo de bebida
 df_bebidas5 = df.groupby('Beverage Types').size()
-print([df_bebidas5.idxmax(), df_bebidas5.max()])
+moda = [df_bebidas5.idxmax(), df_bebidas5.max()]
+print(moda)
 
 print("Estatística Descritiva")
 #Estatística Descritiva dos valores por tipo de bebida
 df_bebidas6 = df.groupby('Beverage Types')
-print(df_bebidas6.describe()['Display Value'])
+esta_desc = df_bebidas6.describe()['Display Value']
+print(esta_desc)
 
 print("Gráfico de comparação dos valores")
 #Gráfico de comparação dos valores por tipo de bebida

@@ -30,14 +30,14 @@ print("C-")
 #(I)
 print("I-")
 
-df_regiao = df.groupby('WHO region')
-print(df_regiao.count())
+df_regiao = df.groupby('WHO region').size()
+print(df_regiao)
 
 #(II)
 print("II-")
 
-df_pais = df.groupby('Country')
-print(df_pais.count())
+df_pais = df.groupby('Country').size()
+print(df_pais)
 
 #(III)
 print("III-")
@@ -60,7 +60,7 @@ print(df_bebidas.median()['Display Value'])
 # print(df_bebidas.mode(df_valores))
 
 
-#O "describe" fornece muitas informacoes, media, mediana, desvio padrai, etc.
+#O "describe" fornece muitas informacoes, media, mediana, desvio padrao, etc.
 print(df_bebidas.describe()['Display Value'])
 
 #E
@@ -77,9 +77,14 @@ print(df_ano.get_group(1985)['Beverage Types'])
 df_regiao2 = df.groupby('WHO region').size()
 
 dict = df_regiao2.to_dict()
-
-print (dict)
+for i in dict:
+    if dict[i] > 4:
+        print (i)
     
+# 2 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 
 
 

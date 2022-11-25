@@ -1,18 +1,20 @@
 import numpy as np
 import pandas as pd
 
+# Importando arquivo .CSV para ser utilizado no exercicio numero 1
+df = pd.read_csv("datasets/world_alcohol.csv")
+
 #A
 print("A-")
 #Agrupe os dados por tipo de bebidas ----------------------
 
-df = pd.read_csv("datasets/world_alcohol.csv")
-
 df_bebidas = df.groupby('Beverage Types')
 
-df_bebidas
-
-#Print para visualizacao no console o objeto dataframe agrupado.
+#Print para visualizacao no console da referencia do objeto dataframe agrupado.
 print(df_bebidas)
+
+#Utilizando o 'describe' para mostrar a agrupacao por bebidas, mas essa funcao gera várias informações adicionais.
+print(df_bebidas.describe().head(10))
 
 
 #B
@@ -21,8 +23,11 @@ print("B-")
 
 df_regiao_ano = df.groupby(['WHO region', 'Year'])
 
-#Print para visualizacao no console o objeto dataframe agrupado.
+#Print para visualizacao no console da referencia do objeto dataframe agrupado.
 print(df_regiao_ano)
+
+#Utilizando o 'describe' para mostrar a agrupacao por regiao e ano, mas essa funcao gera várias informações adicionais.
+print(df_regiao_ano.describe().head(10))
 
 #C
 print("C-")
@@ -49,29 +54,50 @@ print(df_bebidas2.sum()['Display Value'])
 print("D-")
 #Realize análises estatísticas da coluna dos valores: Média, Moda, Mediana, Estatística Descritiva e Gráfico de comparação dos valores agrupados por tipo de bebida ------
 
+
+print("Média")
 #media dos valores por tipo de bebida
-print(df_bebidas.mean()['Display Value'])
+df_bebidas3 = df.groupby('Beverage Types')
+print(df_bebidas3.mean()['Display Value'])
 
+print("Mediana")
 #mediana dos valores por tipo de bebida
-print(df_bebidas.median()['Display Value'])
+df_bebidas4 = df.groupby('Beverage Types')
+print(df_bebidas4.median()['Display Value'])
 
-#moda dos valores por tipo de bebida
-# df_valores = df.groupby('Display Value')
-# print(df_bebidas.mode(df_valores))
+print("Moda")
+# moda dos valores por tipo de bebida
+df_bebidas5 = df.groupby('Beverage Types').size()
+print([df_bebidas5.idxmax(), df_bebidas5.max()])
+
+print("Estatística Descritiva")
+#Estatística Descritiva dos valores por tipo de bebida
+df_bebidas6 = df.groupby('Beverage Types')
+print(df_bebidas6.describe()['Display Value'])
+
+print("Gráfico de comparação dos valores")
+#Gráfico de comparação dos valores por tipo de bebida
+
+# grafico = df.loc[df['Display Value'] >= 0]
+# print(grafico.plot.bar(x='Beverage Types'))
+
 
 
 #O "describe" fornece muitas informacoes, media, mediana, desvio padrao, etc.
-print(df_bebidas.describe()['Display Value'])
+
 
 #E
 print("E-")
 #Mostre resultados de acordo com alguns critérios:
 
+print("Coluna de bebidas do ano de 1985")
 # I. Mostrar a coluna de bebidas do ano de 1985.
 df_ano = df.groupby('Year')
 print(df_ano.get_group(1985)['Beverage Types'])
 
-# II. Mostrar a coluna de Região com valores acima de 4.
+
+print("Coluna de de Regioes com valores acima de 4")
+# II. Mostrar a coluna de Regioes com valores acima de 4.
 
 
 df_regiao2 = df.groupby('WHO region').size()
@@ -81,8 +107,6 @@ for i in dict:
     if dict[i] > 4:
         print (i)
     
-# 2 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 
 
 

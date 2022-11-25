@@ -103,7 +103,11 @@ print (est_desc_not_int_ampl)
 
 # j. Gráfico comparativo entre o grau dos cursos (Bacharelado, Licenciatura, Tecnologia, etc) pelas Notas Integral de Cotas.--
 
+df_grau2 = df.groupby('grau').size()
 
+grafico = df_grau2.plot(x=['Bacharelado', 'Licenciatura', 'Tecnologia'], y='nota_integral_cotas', kind='bar')
+
+print(grafico)
 
 
 

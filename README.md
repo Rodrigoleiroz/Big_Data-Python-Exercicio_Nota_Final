@@ -12,8 +12,6 @@ por Bebida.
 d. Realize análises estatísticas da coluna dos valores: Média, Moda, Mediana, Estatística
 Descritiva e Gráfico de comparação dos valores agrupados por tipo de bebida.
 
-![Gráfico de comparação dos valores](https://user-images.githubusercontent.com/76019058/203892827-572bb4a9-2027-4320-8e3d-15b4211139e0.png)
-
 e. Mostre resultados de acordo com alguns critérios:
 
 i. Mostrar a coluna de bebidas do ano de 1985.

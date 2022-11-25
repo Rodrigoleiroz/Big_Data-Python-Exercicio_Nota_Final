@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 
+
 # Importando arquivo .CSV para ser utilizado no exercicio numero 1
 df = pd.read_csv("datasets/world_alcohol.csv")
 
@@ -82,8 +83,11 @@ print(esta_desc)
 print("Gráfico de comparação dos valores")
 #Gráfico de comparação dos valores por tipo de bebida
 
-# grafico = df.loc[df['Display Value'] >= 0]
-# print(grafico.plot.bar(x='Beverage Types'))
+df_bebidas6 = df.groupby('Beverage Types').size()
+
+grafico = df_bebidas6.plot(x='Beverage Types', y='Display Value', kind='bar')
+
+print(grafico)
 
 
 
